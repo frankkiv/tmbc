@@ -1,20 +1,22 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './index.css';
-import { Layout, Menu } from 'antd';
+import './index.scss';
+import { BackTop, Layout, Menu } from 'antd';
 const { Header, Content, Footer } = Layout;
 
 interface Props {
-  window?: () => Window;
   children: React.ReactElement;
 }
 
 export function CustomTheme(props: Props) {
-  const { children, window } = props;
+  const { children } = props;
   return (
     <Layout>
+      <BackTop />
       <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-        <div className="logo" />
+        <div className="logo">
+          <img src="./assets/logo-tm_white.png" alt="tm-logo" />
+        </div>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
           <Menu.Item key="1">nav 1</Menu.Item>
           <Menu.Item key="2">nav 2</Menu.Item>
