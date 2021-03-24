@@ -1,15 +1,17 @@
-.logo {
+.pc-logo {
   float: left;
   width: 140px;
 
   img {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
   }
 }
-.site-layout .site-layout-background {
-  background: #fff;
-}
-[data-theme='dark'] .site-layout .site-layout-background {
-  background: #141414;
+
+.pc-footer {
+  padding: 10px 0;
+  padding: 0.625rem 0;
+  background-color: #bcbdc0;
+  color: #333;
+  text-align: center;
 }
