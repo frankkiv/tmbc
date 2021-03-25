@@ -5,21 +5,21 @@ import { CustomTheme } from './theme';
 
 export function App() {
   return (
-      <CustomTheme >
-          <Router>
-            <Switch>
-              {Routes.map((route) => (
-                <Route
-                  exact
-                  path={route.path}
-                  key={route.path}
-                  component={route.component}
-                />
-              ))}
-              <Route component={NotFoundPage} />
-            </Switch>
-          </Router>
+    <Router>
+      <CustomTheme routes={Routes}>
+        <Switch>
+          {Routes.map((route) => (
+            <Route
+              exact
+              path={route.path}
+              key={route.path}
+              component={route.component}
+            />
+          ))}
+          <Route component={NotFoundPage} />
+        </Switch>
       </CustomTheme>
+    </Router>
   );
 }
 

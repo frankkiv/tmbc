@@ -1,13 +1,13 @@
 import { StatPlayer, StatRanking, Player, Team } from "./pages";
-
-
-const Routes: {
+interface Route {
   path: string;
   name: string;
   component: any;
-  hidden?: boolean;
+  onHeader?: boolean;
   auth?: boolean;
-}[] = [
+};
+
+const Routes: Route[] = [
   {
     path: '/player/:id',
     name: 'Player',
@@ -22,11 +22,13 @@ const Routes: {
     path: '/stat-ranking',
     name: 'Stat Ranking',
     component: StatRanking,
+    onHeader: true,
   },
   {
     path: '/stat-player',
     name: 'Stat Player',
     component: StatPlayer,
+    onHeader: true,
   }
 ];
 

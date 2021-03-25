@@ -61,7 +61,7 @@ export function Player(props: PlayerProps) {
       {/* {records.map((record) => {
         return <h2>This is Game  {record?.GameId} ! </h2>;
       })} */}
-      <Table dataSource={records} columns={columns} />;
+      <Table dataSource={records} columns={columns} rowKey="GameId" />;
     </div>
   );
 }
