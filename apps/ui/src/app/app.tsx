@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Routes from './routes';
-import { CustomTheme } from './theme';
+// import { CustomTheme } from './theme';
+import { UiTheme } from '@tmbc/ui/theme';
 
 export function App() {
   return (
     <Router>
-      <CustomTheme routes={Routes}>
+      <UiTheme routes={Routes}>
         <Switch>
           {Routes.map((route) => (
             <Route
@@ -18,7 +19,7 @@ export function App() {
           ))}
           <Route component={NotFoundPage} />
         </Switch>
-      </CustomTheme>
+      </UiTheme>
     </Router>
   );
 }

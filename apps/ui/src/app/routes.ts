@@ -1,11 +1,5 @@
+import { Route } from "@tmbc/ui/theme";
 import { StatPlayer, StatRanking, Player, Team } from "./pages";
-interface Route {
-  path: string;
-  name: string;
-  component: any;
-  onHeader?: boolean;
-  auth?: boolean;
-};
 
 const Routes: Route[] = [
   {
