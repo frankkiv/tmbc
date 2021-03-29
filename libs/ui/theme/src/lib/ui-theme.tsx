@@ -9,7 +9,7 @@ const { Header, Content, Footer } = Layout;
 
 interface Props {
   routes?: Route[];
-  children: React.ReactElement;
+  children?: React.ReactElement;
 }
 
 export function UiTheme(props: Props) {
