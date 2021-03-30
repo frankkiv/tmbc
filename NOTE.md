@@ -121,3 +121,6 @@ Some people also prefer to go further, and separate components into different fo
   ├── index.tsx
   └── router.tsx
 ```
+
+# Build and Deploy to github page
+Reference: [Deploy an Nx React App to GitHub Pages](https://emilyxiong.medium.com/deploy-a-nx-react-app-to-github-pages-a83de7551ec0)

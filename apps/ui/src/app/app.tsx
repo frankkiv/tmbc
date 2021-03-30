@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 import Routes from './routes';
 // import { CustomTheme } from './theme';
 import { UiTheme } from '@tmbc/ui/theme';
 
 export function App() {
   return (
-    <Router basename={process.env.NX_BASE_HREF}>
+    <Router>
         <UiTheme routes={Routes}>
           <Switch>
             <Route path='/' exact component={HomePage} />
