@@ -8,7 +8,7 @@ import { mockData } from './mockData';
 export interface PlayerProps {}
 
 export function Player(props: PlayerProps) {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>() ;
   const [records, setRecords] = useState<any>([]);
 
   useEffect(() => {

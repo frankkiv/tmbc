@@ -29,7 +29,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "predeploy": "nx build --prod --baseHref=/tmbc/",
+    "predeploy": "NX_APP_BASEURL=/tmbc/ nx build --prod --baseHref=/tmbc/",
     "deploy": "gh-pages -d dist/apps/tmbc"
   },
   "private": true,

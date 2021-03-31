@@ -1,18 +1,17 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 import Routes from './routes';
 // import { CustomTheme } from './theme';
 import { UiTheme } from '@tmbc/ui/theme';
 
 export function App() {
   return (
-    <Router>
+    <Router basename={process.env.NX_APP_BASEURL}>
         <UiTheme routes={Routes}>
           <Switch>
             <Route path='/' exact component={HomePage} />
             {Routes.map((route) => (
               <Route
-                exact
                 path={route.path}
                 key={route.path}
                 component={route.component}
