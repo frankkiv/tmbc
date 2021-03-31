@@ -8,8 +8,6 @@ const domain = process.env.NX_REACT_AUTH0_DOMAIN;
 const clientId = process.env.NX_REACT_AUTH0_CLIENTID;
 const audience = process.env.NX_REACT_AUTH0_AUDIENCE;
 
-console.log(domain)
-console.log(clientId)
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
