@@ -45,7 +45,7 @@ export function UiTheme(props: Props) {
       </Header>
       <Content style={{ padding: '0 50px', marginTop: 64 }}>{children}</Content>
       <Footer className="pc-footer">
-        Copyright © 2021 Trend Micro Incorporated. All rights reserved. Platfrom@v0.0.2
+        Copyright © 2021 Trend Micro Incorporated. All rights reserved. Platfrom@v0.0.3
       </Footer>
     </Layout>
   );
