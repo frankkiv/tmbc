@@ -20,7 +20,7 @@ jobs:
       MY_SECRET   : ${{secrets.cd_secret}}
       USER_NAME   : Github_Action
       USER_EMAIL  : frankkiv@github.com
-      PUBLISH_DIR : ./dist
+      PUBLISH_DIR : ./dist/apps/tmbc
     runs-on: ubuntu-latest
     strategy:
       matrix:
