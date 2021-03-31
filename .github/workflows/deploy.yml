@@ -14,25 +14,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  name: Build and deploy gh-pages
-  env:
-    MY_SECRET   : ${{secrets.cd_secret}}
-    USER_NAME   : frankkiv
-    USER_EMAIL  : frankkiv@github.com
-    PUBLISH_DIR : ./dist
-  runs-on: ubuntu-latest
-  strategy:
-    matrix:
-      node-version: [10.x]
-  steps:
-  - uses: actions/checkout@v1
-  - name: Use Node.js ${{ matrix.node-version }}
-    uses: actions/setup-node@v1
-    with:
-      node-version: ${{ matrix.node-version }}
-  - name: npm install
-    run: |
-      npm install
-  - name: npm run deploy
-    run: |
-      npm run deploy
+  build:
+    name: Build and deploy gh-pages
+    env:
+      MY_SECRET   : ${{secrets.cd_secret}}
+      USER_NAME   : frankkiv
+      USER_EMAIL  : frankkiv@github.com
+      PUBLISH_DIR : ./dist
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install
+      run: |
+        npm install
+    - name: npm run deploy
+      run: |
+        npm run deploy
