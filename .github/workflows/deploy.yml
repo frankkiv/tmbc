@@ -19,7 +19,7 @@ jobs:
     env:
       MY_SECRET   : ${{secrets.cd_secret}}
       USER_NAME   : Github_Action
-      USER_EMAIL  : frankkiv@Github_Action.com
+      USER_EMAIL  : frankkiv@github.com
       PUBLISH_DIR : ./dist
     runs-on: ubuntu-latest
     strategy:
@@ -36,7 +36,7 @@ jobs:
         npm install
     - name: npm run build
       run: |
-        NX_APP_BASEURL=/tmbc/ nx build --prod --baseHref=/tmbc/
+        npm run predeploy
     - name: Deploy to github page
       run: |
         cd $PUBLISH_DIR
