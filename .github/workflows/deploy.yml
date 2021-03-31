@@ -18,8 +18,8 @@ jobs:
     name: Build and deploy gh-pages
     env:
       MY_SECRET   : ${{secrets.cd_secret}}
-      USER_NAME   : frankkiv
-      USER_EMAIL  : frankkiv@github.com
+      USER_NAME   : Github_Action
+      USER_EMAIL  : frankkiv@Github_Action.com
       PUBLISH_DIR : ./dist
     runs-on: ubuntu-latest
     strategy:
@@ -34,6 +34,19 @@ jobs:
     - name: npm install
       run: |
         npm install
-    - name: npm run deploy
+    - name: npm run build
       run: |
-        npm run deploy
+        NX_APP_BASEURL=/tmbc/ nx build --prod --baseHref=/tmbc/
+    - name: Deploy to github page
+      run: |
+        cd $PUBLISH_DIR
+        git init
+        git config --local user.name $USER_NAME
+        git config --local user.email $USER_EMAIL
+        git status
+        git remote add origin https://$MY_SECRET@github.com/$GITHUB_REPOSITORY.git
+        git checkout -b gh-pages
+        git add --all
+        git commit -m "deploy to Github pages"
+        git push origin gh-pages -f
+        echo 🤘 deploy gh-pages complete.
