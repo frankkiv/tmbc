@@ -6,7 +6,7 @@ import './team.module.scss';
 export interface TeamProps {}
 
 export function Team(props: TeamProps) {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>() ;
   return (
     <div>
       <h1>Welcome to Team {id}!</h1>
