@@ -10,7 +10,7 @@ import ProtectedRoute from './auth/protected-route';
 import ExternalApi from './external-api/external-api';
 
 export function App() {
-  const { isLoading, error } = useAuth0();
+  const { isLoading, error, isAuthenticated } = useAuth0();
 
   if (error) {
     return <div>Oops... {error.message}</div>;
@@ -26,9 +26,7 @@ export function App() {
         <Logo width="75" height="75" />
         <h1>Welcome to auth0-sample!</h1>
       </header>
-      <Login />
-      <Logout />
-
+      {isAuthenticated ? <Logout /> : <Login />}
       <Switch>
         <Route path="/" exact component={UnprotectedPage} />
         <ProtectedRoute path="/profile" component={Profile} />
