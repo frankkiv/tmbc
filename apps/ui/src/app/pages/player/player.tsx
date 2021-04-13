@@ -57,7 +57,7 @@ export function Player(props: PlayerProps) {
 
   return (
     <div>
-      <h1>Welcome to Player {id} ! </h1>
+      <h1>Welcome to Player {id || ''} ! </h1>
       {/* {records.map((record) => {
         return <h2>This is Game  {record?.GameId} ! </h2>;
       })} */}

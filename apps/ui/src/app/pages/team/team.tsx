@@ -9,7 +9,7 @@ export function Team(props: TeamProps) {
   const { id } = useParams<{ id: string }>() ;
   return (
     <div>
-      <h1>Welcome to Team {id}!</h1>
+      <h1>Welcome to Team {id || ''}!</h1>
     </div>
   );
 }
