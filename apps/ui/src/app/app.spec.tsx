@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './app';
 
 jest.mock('@tmbc/ui/theme', () => ({
-  UiTheme: ({ children }) => <>{children}</>,
+  UiTheme: ({ children }) => <> {children} </>,
 }));
 
 describe('App', () => {
