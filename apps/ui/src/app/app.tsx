@@ -17,8 +17,8 @@ export function App() {
                 component={route.component}
               />
             ))}
-            <Route path='/404' component={NotFoundPage} />
-            <Redirect to="/404" />
+            <Route path='/NotFound' component={NotFoundPage} />
+            <Redirect to="/NotFound" />
           </Switch>
         </UiTheme>
     </Router>
