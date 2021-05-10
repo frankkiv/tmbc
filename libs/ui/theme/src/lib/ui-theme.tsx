@@ -16,7 +16,11 @@ export function UiTheme(props: Props) {
   const { children, routes } = props;
 
   return (
-    <Layout>
+    <Layout style={{
+      height: '100vh',
+      display: 'flex',
+      flexFlow: 'column'
+    }}>
       <BackTop />
       <Header
         style={{
@@ -30,7 +34,7 @@ export function UiTheme(props: Props) {
           <img src="./assets/logo-tm_white.png" alt="tm-logo" />
         </div>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['4']}>
-          {routes.map(
+          {routes?.map(
             (route) =>
               route.onHeader && (
                 <Menu.Item key={route.path}>
@@ -43,7 +47,7 @@ export function UiTheme(props: Props) {
           </Menu.Item>
         </Menu>
       </Header>
-      <Content style={{ padding: '0 50px', marginTop: 64 }}>{children}</Content>
+      <Content style={{ marginTop: 64 }}>{children}</Content>
       <Footer className="pc-footer">
         Copyright © 2021 Trend Micro Incorporated. All rights reserved. Platfrom@v0.0.3
       </Footer>

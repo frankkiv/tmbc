@@ -1,12 +1,23 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/react" },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
   "defaultProject": "ui",
   "generators": {
     "@nrwl/react": {
-      "application": { "style": "scss", "linter": "eslint", "babel": true },
-      "component": { "style": "scss" },
-      "library": { "style": "scss", "linter": "eslint" }
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
     }
   },
   "projects": {
@@ -61,12 +72,16 @@
             "proxyConfig": "apps/ui/proxy.conf.json"
           },
           "configurations": {
-            "production": { "buildTarget": "ui:build:production" }
+            "production": {
+              "buildTarget": "ui:build:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/ui/**/*.{ts,tsx,js,jsx}"] }
+          "options": {
+            "lintFilePatterns": ["apps/ui/**/*.{ts,tsx,js,jsx}"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -91,12 +106,16 @@
             "devServerTarget": "ui:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "ui:serve:production" }
+            "production": {
+              "devServerTarget": "ui:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
+          }
         }
       }
     },
@@ -117,6 +136,103 @@
           "options": {
             "jestConfig": "libs/ui/theme/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "px": {
+      "root": "apps/px",
+      "sourceRoot": "apps/px/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/px",
+            "index": "apps/px/src/index.html",
+            "main": "apps/px/src/main.tsx",
+            "polyfills": "apps/px/src/polyfills.ts",
+            "tsConfig": "apps/px/tsconfig.app.json",
+            "assets": ["apps/px/src/favicon.ico", "apps/px/src/assets"],
+            "styles": ["apps/px/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/px/src/environments/environment.ts",
+                  "with": "apps/px/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "px:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "px:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/px/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/px"],
+          "options": {
+            "jestConfig": "apps/px/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "px-e2e": {
+      "root": "apps/px-e2e",
+      "sourceRoot": "apps/px-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/px-e2e/cypress.json",
+            "tsConfig": "apps/px-e2e/tsconfig.e2e.json",
+            "devServerTarget": "px:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "px:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/px-e2e/**/*.{js,ts}"]
           }
         }
       }
