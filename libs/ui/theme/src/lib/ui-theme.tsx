@@ -17,7 +17,6 @@ export function UiTheme(props: Props) {
 
   return (
     <Layout style={{
-      height: '100vh',
       display: 'flex',
       flexFlow: 'column'
     }}>

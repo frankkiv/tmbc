@@ -1,0 +1,47 @@
+.banner {
+  background-color: #f6f8fa;
+  padding: 0.5rem 5%;
+  .px-info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    div:nth-child(1) {
+      width: 80%;
+    }
+    div:nth-child(2) {
+      width: 20%;
+    }
+    h1.px-title {
+      font-size: 28px;
+      margin: 0;
+      padding: 0;
+    }
+    p.px-sub-title {
+      font-size: 16px;
+      color: #586069;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.px-brief {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
