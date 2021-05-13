@@ -15,7 +15,6 @@ export function PxMain() {
   }, []);
   return (
     <>
-      {' '}
       <Col flex="1.5" style={{ border: 'black 2px solid', padding: '20px' }}>
         <Affix offsetTop={80}>
           <h1>Timmer block</h1>
