@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Anchor, Typography, Affix } from 'antd';
+import {
+  Col,
+  Anchor,
+  Typography,
+  Affix,
+  Space,
+  Card,
+  Input,
+  Tooltip,
+} from 'antd';
 // import './PxMain.scss';
 import { sections } from './mockData';
+import { PxResource } from '../PxResource/PxResource';
 
 const { Link } = Anchor;
 const { Title, Paragraph } = Typography;
@@ -10,15 +20,28 @@ export function PxMain() {
   const [targetOffset, setTargetOffset] = useState<number | undefined>(
     undefined
   );
+  const [pxState, setPxState] = useState<'initializing' | 'ready' | 'error'>(
+    'initializing'
+  );
   useEffect(() => {
     setTargetOffset(window.innerHeight / 2);
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPxState('ready');
+    }, 5000);
+  }, []);
   return (
     <>
-      <Col flex="1.5" style={{ border: 'black 2px solid', padding: '20px' }}>
+      <Col flex="none" style={{ border: 'black 2px solid', padding: '20px' }}>
         <Affix offsetTop={80}>
-          <h1>Timmer block</h1>
-          <h1>Resource block</h1>
+          <Space direction="vertical">
+            <Card style={{ width: 350 }}>
+              <p>Timer Block</p>
+            </Card>
+            <PxResource state={pxState} />
+          </Space>
         </Affix>
       </Col>
       <Col
